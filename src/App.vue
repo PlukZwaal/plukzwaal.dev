@@ -5,7 +5,5 @@ import HeaderComponent from './assets/components/HeaderComponent.vue'
 
 <template>
   <HeaderComponent />
-  <div class="wrapper">
     <RouterView />
-  </div>
 </template>

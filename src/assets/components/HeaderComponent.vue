@@ -1,7 +1,7 @@
 <template>
   <header class="wrapper">
     <div class="mobile-header">
-      <h1>Pluk Zwaal</h1>
+      <h1>P.</h1>
       <div class="menu" :class="{ 'cross': isMobileMenuOpen }" @click="toggleMenu">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -9,16 +9,18 @@
       </div>
     </div>
     <div class="desktop-menu">
-      <h1>Pluk Zwaal</h1>
+      <h1>P.</h1>
       <div>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/projects">Projects</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
       </div>
     </div>
     <div v-if="isMobileMenuOpen" class="mobile-menu">
       <RouterLink to="/" @click="closeMobileMenu">Home</RouterLink>
       <RouterLink to="/about" @click="closeMobileMenu">About</RouterLink>
+      <RouterLink to="/projects" @click="closeMobileMenu">Projects</RouterLink>
       <RouterLink to="/contact" @click="closeMobileMenu">Contact</RouterLink>
     </div>
   </header>

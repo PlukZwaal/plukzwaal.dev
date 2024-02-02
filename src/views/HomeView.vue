@@ -1,3 +1,7 @@
 <template>
-  <h1>This is an home page</h1>
+  <HomeHeroComponent />
 </template>
+
+<script setup>
+import HomeHeroComponent from '../assets/components/HomeHeroComponent.vue'
+</script>
