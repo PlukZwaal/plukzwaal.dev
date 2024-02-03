@@ -1,27 +1,31 @@
 <template>
-  <header class="wrapper">
-    <div class="mobile-header">
-      <h1>P.</h1>
-      <div class="menu" :class="{ 'cross': isMobileMenuOpen }" @click="toggleMenu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+  <header>
+    <div class="wrapper">
+      <div class="mobile-header">
+        <h1>
+          <RouterLink to="/">P.</RouterLink>
+        </h1>
+        <div class="menu" :class="{ 'cross': isMobileMenuOpen }" @click="toggleMenu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </div>
-    </div>
-    <div class="desktop-menu">
-      <h1>P.</h1>
-      <div>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/projects">Projects</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
+      <div class="desktop-menu">
+        <h1>
+          <RouterLink to="/">P.</RouterLink>
+        </h1>
+        <div>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/projects">Projects</RouterLink>
+          <RouterLink to="/contact">Contact</RouterLink>
+        </div>
       </div>
-    </div>
-    <div v-if="isMobileMenuOpen" class="mobile-menu">
-      <RouterLink to="/" @click="closeMobileMenu">Home</RouterLink>
-      <RouterLink to="/about" @click="closeMobileMenu">About</RouterLink>
-      <RouterLink to="/projects" @click="closeMobileMenu">Projects</RouterLink>
-      <RouterLink to="/contact" @click="closeMobileMenu">Contact</RouterLink>
+      <div v-if="isMobileMenuOpen" class="mobile-menu">
+        <RouterLink to="/about" @click="closeMobileMenu">About</RouterLink>
+        <RouterLink to="/projects" @click="closeMobileMenu">Projects</RouterLink>
+        <RouterLink to="/contact" @click="closeMobileMenu">Contact</RouterLink>
+      </div>
     </div>
   </header>
 </template>
@@ -43,17 +47,20 @@ const closeMobileMenu = () => {
 <style scoped>
 /* GENERAL */
 
-/* ---------------------------------------------- */
-/* DESKTOP */
-/* ---------------------------------------------- */
+a {
+  text-decoration: none;
+  padding: 10px;
+  color: #000000;
+}
 
 .desktop-menu,
-.mobile-header{
+.mobile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
 }
+
 
 /* ---------------------------------------------- */
 /* MOBILE */
@@ -63,10 +70,14 @@ const closeMobileMenu = () => {
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 0;
-  background-color: #fff;
+  background-color: #ffffff;
+  margin-left: -20pX;
   width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 100px);
+}
+
+.mobile-menu a {
+  padding-left: 30px;
 }
 
 .bar {

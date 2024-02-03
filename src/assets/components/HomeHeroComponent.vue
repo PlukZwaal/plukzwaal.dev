@@ -21,7 +21,6 @@
 }
 
 p{
-    margin: 0;
     font-size: 4rem;
     font-weight: 300;
     text-align: center;
