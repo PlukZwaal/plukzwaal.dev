@@ -1,5 +1,6 @@
 <template>
   <HomeHeroComponent />
+  <p>geasdad</p>
 </template>
 
 <script setup>

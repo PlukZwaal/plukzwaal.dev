@@ -1,16 +1,6 @@
 <template>
   <header>
     <div class="wrapper">
-      <div class="mobile-header">
-        <h1>
-          <RouterLink to="/">P.</RouterLink>
-        </h1>
-        <div class="menu" :class="{ 'cross': isMobileMenuOpen }" @click="toggleMenu">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-      </div>
       <div class="desktop-menu">
         <h1>
           <RouterLink to="/">P.</RouterLink>
@@ -19,6 +9,16 @@
           <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/projects">Projects</RouterLink>
           <RouterLink to="/contact">Contact</RouterLink>
+        </div>
+      </div>
+      <div class="mobile-header">
+        <h1>
+          <RouterLink to="/" @click="closeMobileMenu">P.</RouterLink>
+        </h1>
+        <div class="menu" :class="{ 'cross': isMobileMenuOpen }" @click="toggleMenu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
       </div>
       <div v-if="isMobileMenuOpen" class="mobile-menu">
