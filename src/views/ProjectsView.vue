@@ -2,8 +2,10 @@
 </script>
 
 <template>
-  <div class="about">
-    <h1>This is an projects page</h1>
+  <div class="projects">
+    <div class="wrapper">   
+        <h1>This is an projects page</h1>
+    </div>
   </div>
 </template>
 
