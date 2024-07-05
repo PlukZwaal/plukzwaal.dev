@@ -44,6 +44,10 @@ a {
     color: var(--text-primary-color);
 }
 
+a.router-link-active {
+    font-weight: bold;
+}
+
 .hamburger {
     display: none;
 }
