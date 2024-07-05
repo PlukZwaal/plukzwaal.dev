@@ -4,7 +4,7 @@
 <template>
   <div class="contact">
     <div class="wrapper">
-        <h1>This is an contact page</h1>
+        <p>This is an contact page</p>
     </div>
   </div>
 </template>

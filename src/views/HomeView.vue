@@ -4,7 +4,7 @@
 <template>
   <div class="home">
     <div class="wrapper">
-        <h1>Hi, I'm Pluk Zwaal.</h1>
+        <h1>Hi, I'm <u>Pluk.</u></h1>
         <p>I am a Junior Software Developer specializing in web programming. </p>
     </div>
   </div>
