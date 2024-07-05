@@ -41,7 +41,7 @@ header {
 
 a {
     text-decoration: none;
-    color: #000000;
+    color: var(--text-primary-color);
 }
 
 .hamburger {

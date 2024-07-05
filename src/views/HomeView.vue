@@ -5,6 +5,7 @@
   <div class="home">
     <div class="wrapper">
         <h1>Hi, I'm Pluk Zwaal.</h1>
+        <p>I am a Junior Software Developer specializing in web programming. </p>
     </div>
   </div>
 </template>
@@ -14,6 +15,6 @@
         height: calc(100vh - 200px); 
         display: flex;
         justify-content: center;
-        align-items: center;
+        flex-direction: column;
     }
 </style>
