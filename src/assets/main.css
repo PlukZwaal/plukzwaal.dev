@@ -20,6 +20,11 @@ body{
 .wrapper{
   width: 50%;	
   margin: 0 auto;
+  max-width: 2500px;
+}
+
+.flex{
+  display: flex;
 }
 
 @media (max-width: 768px){
