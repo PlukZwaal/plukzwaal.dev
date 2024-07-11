@@ -2,12 +2,15 @@
 
 :root {
   --background-color-primary: #ffffff;
+  --background-color-transparent-primary: rgb(255, 255, 255, .75);
   --text-primary-color: #111111;
   
   --light-background-color-primary: #ffffff;
+  --light-background-color-transparent-primary: rgb(255, 255, 255, .75);
   --light-text-primary-color: #111111;
 
   --dark-background-color-primary: #111111;
+  --dark-background-color-transparent-primary: rgb(17, 17, 17, .75);
   --dark-text-primary-color: #ffffff;
 }
 
