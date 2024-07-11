@@ -14,11 +14,6 @@
   --dark-text-primary-color: #ffffff;
 }
 
-.dark-theme{
-  --background-color-primary: #111111;
-  --text-primary-color: #ffffff;
-}
-
 *{
   margin: 0;
   padding: 0;
