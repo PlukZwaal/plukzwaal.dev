@@ -2,7 +2,18 @@
 
 :root {
   --background-color-primary: #ffffff;
-  --text-primary-color: #111111;
+  --text-primary-color-: #111111;
+  
+  --light-background-color-primary: #ffffff;
+  --light-text-primary-color-: #111111;
+
+  --dark-background-color-primary: #111111;
+  --dark-text-primary-color-: #ffffff;
+}
+
+.dark-theme{
+  --background-color-primary: #111111;
+  --text-primary-color: #ffffff;
 }
 
 *{
@@ -18,7 +29,7 @@ body{
 }
 
 .wrapper{
-  width: 50%;	
+  width: 60%;	
   margin: 0 auto;
   max-width: 2500px;
 }
@@ -33,3 +44,4 @@ body{
     padding: 0 20px; 
   }
 }
+
