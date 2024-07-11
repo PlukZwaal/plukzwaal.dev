@@ -9,7 +9,7 @@
                 <RouterLink to="/contact" @click="closeMenu">Contact</RouterLink>
             </nav>
             <div>
-                <p @click="toggleTheme"><img id="themeIcon" src="" alt=""></p>
+                <p @click="switchTheme"><img id="themeIcon" src="" alt=""></p>
             </div>
         </div>
     </header>
@@ -19,20 +19,28 @@
 import { ref } from 'vue';
 import { onMounted } from 'vue'
 
-
-
 onMounted(() => {
-    console.log(localStorage.getItem('theme'));
-    document.getElementById('themeIcon').src = localStorage.getItem('theme') === 'light' ? 'src/assets/images/sun.svg' : 'src/assets/images/moon.svg';
-    if (localStorage.getItem('theme') === 'light') {
-        document.documentElement.style.setProperty('--background-color-primary', 'var(--light-background-color-primary)');
-        document.documentElement.style.setProperty('--text-primary-color', 'var(--light-text-primary-color)');
-    } else {
-        document.documentElement.style.setProperty('--background-color-primary', 'var(--dark-background-color-primary)');
-        document.documentElement.style.setProperty('--text-primary-color', 'var(--dark-text-primary-color)');
-    }
+    changeTheme();
 })
 
+const switchTheme = () => {
+    localStorage.setItem('theme', localStorage.getItem('theme') === 'light' ? 'dark' : 'light');
+    changeTheme();
+};
+
+const changeTheme = () => {
+    if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.style.setProperty('--background-color-primary', 'var(--light-background-color-primary)');
+        document.documentElement.style.setProperty('--background-color-transparent-primary', 'var(--light-background-color-transparent-primary)');
+        document.documentElement.style.setProperty('--text-primary-color', 'var(--light-text-primary-color)');
+        document.getElementById('themeIcon').src = 'src/assets/images/sun.svg';
+    } else {
+        document.documentElement.style.setProperty('--background-color-primary', 'var(--dark-background-color-primary)');
+        document.documentElement.style.setProperty('--background-color-transparent-primary', 'var(--dark-background-color-transparent-primary)');
+        document.documentElement.style.setProperty('--text-primary-color', 'var(--dark-text-primary-color)');
+        document.getElementById('themeIcon').src = 'src/assets/images/moon.svg';
+    }
+}
 
 const isMenuOpen = ref(false);
 
@@ -42,19 +50,6 @@ const toggleMenu = () => {
 
 const closeMenu = () => {
     isMenuOpen.value = false;
-};
-
-const toggleTheme = () => {
-    localStorage.setItem('theme', localStorage.getItem('theme') === 'light' ? 'dark' : 'light');
-    document.getElementById('themeIcon').src = localStorage.getItem('theme') === 'light' ? 'src/assets/images/sun.svg' : 'src/assets/images/moon.svg';
-    console.log(localStorage.getItem('theme'));
-    if (localStorage.getItem('theme') === 'light') {
-        document.documentElement.style.setProperty('--background-color-primary', 'var(--light-background-color-primary)');
-        document.documentElement.style.setProperty('--text-primary-color', 'var(--light-text-primary-color)');
-    } else {
-        document.documentElement.style.setProperty('--background-color-primary', 'var(--dark-background-color-primary)');
-        document.documentElement.style.setProperty('--text-primary-color', 'var(--dark-text-primary-color)');
-    }
 };
 </script>
 
@@ -90,8 +85,9 @@ nav {
 }
 
 img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+    z-index: 3;
 }
 
 @media (max-width: 768px) {
@@ -109,7 +105,7 @@ img {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: var(--background-color-transparent-primary);
         flex-direction: column;
         justify-content: center;
         align-items: center;
