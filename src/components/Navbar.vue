@@ -8,12 +8,31 @@
                 <RouterLink to="/projects" @click="closeMenu">Projects</RouterLink>
                 <RouterLink to="/contact" @click="closeMenu">Contact</RouterLink>
             </nav>
+            <div>
+                <p @click="toggleTheme"><img id="themeIcon" src="" alt=""></p>
+            </div>
         </div>
     </header>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { onMounted } from 'vue'
+
+
+
+onMounted(() => {
+    console.log(localStorage.getItem('theme'));
+    document.getElementById('themeIcon').src = localStorage.getItem('theme') === 'light' ? 'src/assets/images/sun.svg' : 'src/assets/images/moon.svg';
+    if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.style.setProperty('--background-color-primary', 'var(--light-background-color-primary)');
+        document.documentElement.style.setProperty('--text-primary-color', 'var(--light-text-primary-color)');
+    } else {
+        document.documentElement.style.setProperty('--background-color-primary', 'var(--dark-background-color-primary)');
+        document.documentElement.style.setProperty('--text-primary-color', 'var(--dark-text-primary-color)');
+    }
+})
+
 
 const isMenuOpen = ref(false);
 
@@ -23,6 +42,19 @@ const toggleMenu = () => {
 
 const closeMenu = () => {
     isMenuOpen.value = false;
+};
+
+const toggleTheme = () => {
+    localStorage.setItem('theme', localStorage.getItem('theme') === 'light' ? 'dark' : 'light');
+    document.getElementById('themeIcon').src = localStorage.getItem('theme') === 'light' ? 'src/assets/images/sun.svg' : 'src/assets/images/moon.svg';
+    console.log(localStorage.getItem('theme'));
+    if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.style.setProperty('--background-color-primary', 'var(--light-background-color-primary)');
+        document.documentElement.style.setProperty('--text-primary-color', 'var(--light-text-primary-color)');
+    } else {
+        document.documentElement.style.setProperty('--background-color-primary', 'var(--dark-background-color-primary)');
+        document.documentElement.style.setProperty('--text-primary-color', 'var(--dark-text-primary-color)');
+    }
 };
 </script>
 
@@ -55,6 +87,11 @@ a.router-link-active {
 nav {
     display: flex;
     gap: 20px;
+}
+
+img {
+    width: 20px;
+    height: 20px;
 }
 
 @media (max-width: 768px) {
